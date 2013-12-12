@@ -2,7 +2,15 @@ ThirdProj::Application.routes.draw do
   root to: 'welcome#index'
 
   get "welcome/index"
-
+  resources :users
+  resources :partners do
+    resources :encounters
+  end
+  resources :pronouns, only [:index, :new, :create]
+  resources :parts, only [:index, :new, :create]
+  resources :prefs
+  resources :instruments, only [:index, :new, :create]
+  resources :contacts
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
