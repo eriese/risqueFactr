@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   def index
+    if session[:user_id]
+      redirect_to "/users/#{session[:user_id]}"
+    else
+      redirect_to new_welcome_path
+    end
   end
   def new
     @user = User.new
