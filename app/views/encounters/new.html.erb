@@ -1,0 +1,7 @@
+<%= form_for [@partner,@encounter] do |t|%>
+<%= t.date_select :date %><br>
+<%= t.check_box :fluid, value: true %><br>
+<%= t.select :self_risk, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) %><br>
+<%= t.text_area :notes %><br>
+<%= t.submit %>
+<% end %>

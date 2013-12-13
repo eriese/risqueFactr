@@ -4,6 +4,7 @@ ThirdProj::Application.routes.draw do
   get "welcome/index"
   get "/login" => "welcome#new"
   post "/login" => "welcome#create"
+  get "/logout" => "welcome#destroy"
   resources :users
   resources :partners do
     resources :encounters

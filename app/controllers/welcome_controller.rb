@@ -12,6 +12,7 @@ class WelcomeController < ApplicationController
     redirect_to "/users"
   end
   def destroy
-    session[user_id] = nil
+    session[:user_id] = nil
+    redirect_to "/login"
   end
 end

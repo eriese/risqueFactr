@@ -7,10 +7,11 @@ class PartnersController < ApplicationController
   end
   def create
     @partner = Partner.new(params[:partner])
+    @partner.user_id = session[:user_id]
     if @partner.save
-      redirect_to partners_path(@partner)
+      redirect_to partner_path(@partner)
     else
-      redirect_to new_partners_path
+      redirect_to new_partner_path
     end
   end
   def show
