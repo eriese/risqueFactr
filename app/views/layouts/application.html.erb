@@ -9,8 +9,9 @@
 <body>
 <% if session[:user_id] %>
 <%= link_to "Log out", "/logout"%><br>
-<% else %>
 <%= link_to "Dash", "/users" %><br>
+<% else %>
+
 <% end %>
 <%= yield %>
 

@@ -14,5 +14,5 @@ class Contact < ActiveRecord::Base
   attr_accessible :encounter_id, :user_instrument, :partner_instrument
   belongs_to :instrument, foreign_key: "user_instrument"
   belongs_to :instrument, foreign_key: "partner_instrument"
-  validates :encounter_id, :user_instrument, :partner_instrument, :presence => true
+  validates :user_instrument, :partner_instrument, :presence => true
 end

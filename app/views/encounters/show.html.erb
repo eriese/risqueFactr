@@ -1,5 +1,8 @@
 <%= @encounter.partner.user.name %> with <%= @encounter.partner.name %><br>
 fluid exchange: <%= @encounter.fluid %>
-date: <%= @encounter.date %>
+date: <%= @encounter.took_place %>
 self-assessed risk level: <%= @encounter.self_risk %>
 notes: <%= @encounter.notes %>
+<% @contacts.each do |contact| %>
+<br><%= "your #{contact[0]} came in contact with their #{contact[1]}" %>
+<% end %>

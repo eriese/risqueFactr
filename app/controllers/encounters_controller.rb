@@ -5,12 +5,16 @@ class EncountersController < ApplicationController
   end
   def new
     @partner = Partner.find(params[:partner_id])
-    @encounter = @partner.encounters.new()
+    @encounter = @partner.encounters.new
+    @instruments = Instrument.all
+    @genital_contact = @encounter.contacts.new
+    @genitals_id = Instrument.where(part: "genitals").first.id
+
   end
   def create
-    @user = User.find(session[:user_id])
     @partner = Partner.find(params[:partner_id])
     @encounter = @partner.encounters.new(params[:encounter])
+    binding.pry
     if @encounter.save
       redirect_to partner_encounter_path(@partner, @encounter)
     else
@@ -19,6 +23,13 @@ class EncountersController < ApplicationController
   end
   def show
     @encounter = Encounter.find(params[:id])
+    contacts_objects = @encounter.contacts
+    @contacts = contacts_objects.map do |contact|
+      contact_array = []
+      contact_array << Instrument.find(contact.user_instrument).part
+      contact_array << Instrument.find(contact.partner_instrument).part
+      contact_array
+    end
   end
   def edit
     @encounter = Encounter.find(params[:id])
