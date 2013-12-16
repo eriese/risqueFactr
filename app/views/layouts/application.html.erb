@@ -7,12 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if session[:user_id] %>
-<%= link_to "Log out", "/logout"%><br>
-<%= link_to "Dash", "/users" %><br>
-<% else %>
+<div class="nav">
+  <% if session[:user_id] %>
+  <ul>
 
-<% end %>
+    <li>
+      <%= link_to "Log out", "/logout"%><br>
+    </li>
+    <li>
+      <%= link_to "Dash", "/users" %><br>
+    </li>
+    <li><%= link_to "partners", "/partners" %></li>
+    <li><%= link_to "encounters", "/users/#{session[:user_id]}/encounters"%></li>
+  </ul>
+  <% else %>
+
+  <% end %>
+</div>
 <%= yield %>
 
 </body>

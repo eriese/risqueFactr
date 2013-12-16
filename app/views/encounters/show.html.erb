@@ -1,8 +1,10 @@
 <%= @encounter.partner.user.name %> with <%= @encounter.partner.name %><br>
-fluid exchange: <%= @encounter.fluid %>
-date: <%= @encounter.took_place %>
-self-assessed risk level: <%= @encounter.self_risk %>
-notes: <%= @encounter.notes %>
+fluid exchange: <%= @encounter.fluid %><br>
+date: <%= @encounter.took_place %><br>
+self-assessed risk level: <%= @encounter.self_risk %><br>
+app-assessed risk level: <%= @encounter.risk %><br>
+notes: <%= @encounter.notes %><br>
 <% @contacts.each do |contact| %>
 <br><%= "your #{contact[0]} came in contact with their #{contact[1]}" %>
 <% end %>
+<br><%= link_to "edit", edit_partner_encounter_path(@encounter.partner, @encounter)%>

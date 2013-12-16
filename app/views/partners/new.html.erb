@@ -1,7 +1,11 @@
 <%= form_for @partner do |t| %>
-<%= t.text_field :name %>
-<%= t.select :frequency, options_for_select(["one night stand", "every once in a while", "weekly", "multiple times a week"]) %>
-<%= t.select :familiarity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) %>
-<%= t.select :exclusivity, options_for_select(["exclusive", "only having sex with known others", "not exclusive with disclosure of other partners", "not exclusive, no disclosure of other partners"]) %>
+<%= t.label :name %>
+<%= t.text_field :name %><br>
+<%= t.label :frequency, "Frequency of encounters" %>
+<%= t.select :frequency, options_for_select(["one night stand", "every once in a while", "weekly", "multiple times a week"]) %><br>
+<%= t.label :familiarity, "How would you rate your familiarity/trust level?" %>
+<%= t.select :familiarity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) %><br>
+<%= t.label :exclusivity, "How exclusively is this partner sleeping with you?" %>
+<%# t.select :exclusivity, options_for_select(["exclusive", "only having sex with known others", "not exclusive with disclosure of other partners", "not exclusive, no disclosure of other partners"]) %><br>
 <%= t.submit %>
 <% end %>

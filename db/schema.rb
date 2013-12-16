@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131214064708) do
+ActiveRecord::Schema.define(:version => 20131216030321) do
 
   create_table "contacts", :force => true do |t|
     t.integer  "encounter_id"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20131214064708) do
     t.integer  "partner_instrument"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.boolean  "barriers"
+  end
+
+  create_table "diseases", :force => true do |t|
+    t.string   "name"
+    t.integer  "gestation_min"
+    t.integer  "gestation_max"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "encounters", :force => true do |t|
@@ -29,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20131214064708) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.date     "took_place"
+  end
+
+  create_table "infections", :force => true do |t|
+    t.integer  "test_id"
+    t.integer  "disease_id"
+    t.boolean  "positive"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "instruments", :force => true do |t|
@@ -64,6 +81,13 @@ ActiveRecord::Schema.define(:version => 20131214064708) do
     t.string   "reflexive"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "tests", :force => true do |t|
+    t.date     "date_taken"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

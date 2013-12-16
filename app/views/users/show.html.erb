@@ -1,3 +1,7 @@
 <%= @user.name %><br>
 <%= link_to "edit", user_path(@user) %><br>
+<% @encounters.each do |encounter| %>
+  <br><%= encounter.took_place %>: <br>
+  <%= encounter.partner.name %><br>
+<% end %>
 <%= link_to "new partner", new_partner_path %>

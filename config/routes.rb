@@ -5,6 +5,7 @@ ThirdProj::Application.routes.draw do
   get "/login" => "welcome#new"
   post "/login" => "welcome#create"
   get "/logout" => "welcome#destroy"
+  get "/users/:id/encounters" => "users#encounter"
   resources :users
   resources :partners do
     resources :encounters
@@ -14,6 +15,7 @@ ThirdProj::Application.routes.draw do
   resources :prefs
   resources :instruments, only: [:index, :new, :create]
   resources :contacts
+  resources :tests
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

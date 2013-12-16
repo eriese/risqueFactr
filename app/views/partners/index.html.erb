@@ -1,0 +1,10 @@
+<% @partners.each do |partner| %>
+  <h2><%= link_to partner.name, partner_path(partner) %></h2><br>
+  <h3>Most recent encounter:</h3>
+  fluid exchange: <%= partner.most_recent.fluid %><br>
+date: <%= partner.most_recent.took_place %><br>
+self-assessed risk level: <%= partner.most_recent.self_risk %><br>
+notes: <%= partner.most_recent.notes %><br>
+<% end %>
+<br>
+<%= link_to "New Partner", new_partner_path %>

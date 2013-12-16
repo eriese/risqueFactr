@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       redirect_to new_user_path
@@ -19,6 +20,13 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(session[:user_id])
+    @partners = @user.partners
+    @encounters = @partners.map do |partner|
+      partner.encounters
+    end
+    @encounters.flatten!
+    @encounters = @encounters.sort_by { |encounter| encounter.took_place }
+    @encounters.reverse!
   end
   def edit
     @user = User.find(params[:id])
@@ -34,5 +42,13 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+  end
+  def encounter
+    @user = User.find(params[:id])
+    @partners = @user.partners
+    @encounters = @partners.map do |partner|
+      partner.encounters
+    end
+    @encounters.flatten!
   end
 end

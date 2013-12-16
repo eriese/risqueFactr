@@ -3,4 +3,12 @@
 <%= @partner.familiarity %><br>
 <%= @partner.exclusivity %>
 <br>
+<br>
+<% @encounters.each do |encounter| %>
+  <%= link_to encounter.took_place, partner_encounter_path(@partner, encounter)%><br>
+  Self-assessed risk: <%= encounter.self_risk %><br>
+  Notes: <%= encounter.notes %><br>
+  <br>
+<% end %>
+<%= link_to "edit", edit_partner_path(@partner) %>
 <%= link_to "new encounter", "/partners/#{@partner.id}/encounters/new" %>

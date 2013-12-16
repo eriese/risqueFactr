@@ -14,7 +14,6 @@ class EncountersController < ApplicationController
   def create
     @partner = Partner.find(params[:partner_id])
     @encounter = @partner.encounters.new(params[:encounter])
-    binding.pry
     if @encounter.save
       redirect_to partner_encounter_path(@partner, @encounter)
     else
@@ -33,6 +32,8 @@ class EncountersController < ApplicationController
   end
   def edit
     @encounter = Encounter.find(params[:id])
+    @partner = @encounter.partner
+    @instruments = Instrument.all
   end
   def update
     @encounter = Encounter.find(params[:id])
