@@ -6,6 +6,14 @@
 <%= t.label :password %>
 <%= t.password_field :password %><br>
 <%= t.label :password_confirmation %>
-<%= t.password_field :password_confirmation %>
+<%= t.password_field :password_confirmation %><br>
+<%= t.fields_for :pref do |f| %>
+  <%= f.label :genital_name, "What do you call your genitals?" %>
+  <%= f.text_field :genital_name %><br>
+  <%= f.label :anus_name, "What do you call your anus?" %>
+  <%= f.text_field :anus_name %><br>
+  <%= f.label :pronoun_id, "What pronouns do you use?" %>
+  <%= f.select :pronoun_id, options_from_collection_for_select(@pronouns, :id, :subject) %>
+  <% end %>
 <%= t.submit %>
 <% end %>

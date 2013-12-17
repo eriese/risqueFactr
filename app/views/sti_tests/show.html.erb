@@ -1,0 +1,6 @@
+<%= @sti_test.date_taken %><br>
+<% @infections.each do |infection| %>
+<%= infection.disease.name %>, <%= infection.positive %><br>
+Risk-window begins: <%= infection.disease.window.strftime('%m/%d/%Y') %><br>
+<% end %>
+<%= link_to "edit", edit_sti_test_path(@sti_test) %>

@@ -11,8 +11,9 @@
 #
 
 class Pref < ActiveRecord::Base
-  attr_accessible :genital_name, :anus_name, :pronoun_id
+  attr_accessible :genital_name, :anus_name, :pronoun_id, :users_attributes, :partners_attributes
   has_many :users
   has_many :partners
   belongs_to :pronoun
+  accepts_nested_attributes_for :users, :partners
 end

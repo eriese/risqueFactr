@@ -3,7 +3,7 @@
 # Table name: infections
 #
 #  id         :integer          not null, primary key
-#  test_id    :integer
+#  sti_test_id    :integer
 #  disease_id :integer
 #  positive   :boolean
 #  created_at :datetime         not null
@@ -11,7 +11,7 @@
 #
 
 class Infection < ActiveRecord::Base
-  attr_accessible :disease_id, :positive, :test_id
+  attr_accessible :disease_id, :positive, :sti_test_id
   belongs_to :disease
-  belongs_to :test
+  belongs_to :sti_test
 end

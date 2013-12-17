@@ -1,0 +1,13 @@
+<%= form_for @sti_test  do |t| %>
+<%= t.label :date_taken, "Date"%>
+<%= t.date_select :date_taken %>
+  <% @infections.each do |infection| %>
+  <h3><%= infection.disease.name %></h3>
+    <%= t.fields_for :infections, infection do |f| %>
+      <%= f.select :positive, options_for_select([["Positive", true], ["Negative", false], ["", :_destroy]], infection.positive)%>
+      <%= f.hidden_field :disease_id, value: infection.disease_id %><br>
+    <% end %>
+  <% end %>
+  <br>
+  <%= t.submit %>
+<% end %>

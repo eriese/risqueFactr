@@ -6,5 +6,10 @@ app-assessed risk level: <%= @encounter.risk %><br>
 notes: <%= @encounter.notes %><br>
 <% @contacts.each do |contact| %>
 <br><%= "your #{contact[0]} came in contact with their #{contact[1]}" %>
+  <% if contact[2] %>
+    <%= "with a barrier" %>
+  <% else %>
+    <%= "without a barrier" %>
+  <% end %>
 <% end %>
 <br><%= link_to "edit", edit_partner_encounter_path(@encounter.partner, @encounter)%>

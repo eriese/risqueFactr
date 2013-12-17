@@ -23,24 +23,25 @@ class EncountersController < ApplicationController
   def show
     @encounter = Encounter.find(params[:id])
     contacts_objects = @encounter.contacts
-    @contacts = contacts_objects.map do |contact|
-      contact_array = []
-      contact_array << Instrument.find(contact.user_instrument).part
-      contact_array << Instrument.find(contact.partner_instrument).part
-      contact_array
-    end
+    @contacts = @encounter.contacts_parts
   end
   def edit
     @encounter = Encounter.find(params[:id])
     @partner = @encounter.partner
-    @instruments = Instrument.all
+    @contacts = @encounter.contacts
   end
   def update
+    @partner = Partner.find(params[:partner_id])
     @encounter = Encounter.find(params[:id])
     if @encounter.update_attributes(params[:encounter])
-      redirect_to encounter_path(@encounter)
+      params[:encounter][:contacts_attributes].each do |key, value|
+        if value[:partner_instrument] == "0"
+          Contact.find(value[:id]).destroy
+        end
+      end
+      redirect_to partner_encounter_path(@partner, @encounter)
     else
-      redirect_to edit_encounter_path
+      redirect_to edit_partner_encounter_path(@partner, @encounter)
     end
   end
   def destroy

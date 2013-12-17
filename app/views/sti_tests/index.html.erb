@@ -1,0 +1,12 @@
+<% @sti_tests.each do |sti_test| %>
+  <%= link_to sti_test.date_taken, sti_test_path(sti_test) %><br>
+<% end %>
+<br>
+<br>
+<% @diseases.each do |disease| %>
+  <% if disease.window %>
+    <%= "#{disease.name} risk window began: #{disease.window.strftime('%m/%d/%Y')}" %><br>
+  <% else %>
+    <%= "#{disease.name} risk window began: NEVER TESTED, EXERCISE CAUTION" %><br>
+  <% end %>
+<% end %>

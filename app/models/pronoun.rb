@@ -15,5 +15,7 @@
 class Pronoun < ActiveRecord::Base
   attr_accessible :subject, :object, :possessive, :obj_possessive, :reflexive
   has_many :prefs
+  has_many :users, through: :prefs
+  has_many :partners, through: :prefs
   validates :possessive, :presence => true
 end

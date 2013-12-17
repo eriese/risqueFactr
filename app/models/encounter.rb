@@ -24,6 +24,7 @@ class Encounter < ActiveRecord::Base
       contact_array = []
       contact_array << Instrument.find(contact.user_instrument).part
       contact_array << Instrument.find(contact.partner_instrument).part
+      contact_array << contact.barriers
       contact_array
     end
   end

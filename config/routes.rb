@@ -15,7 +15,7 @@ ThirdProj::Application.routes.draw do
   resources :prefs
   resources :instruments, only: [:index, :new, :create]
   resources :contacts
-  resources :tests
+  resources :sti_tests
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,7 +1,14 @@
 <%= @user.name %><br>
-<%= link_to "edit", user_path(@user) %><br>
+<%= link_to "edit", edit_user_path(@user) %><br>
 <% @encounters.each do |encounter| %>
   <br><%= encounter.took_place %>: <br>
   <%= encounter.partner.name %><br>
 <% end %>
 <%= link_to "new partner", new_partner_path %>
+<br>
+<br>
+<% @diseases.each do |disease| %>
+  <% if disease[1] %>
+    <%= "#{disease[0]} risk window began: #{disease[1].strftime('%m/%d/%Y')}" %><br>
+  <% end %>
+<% end %>
