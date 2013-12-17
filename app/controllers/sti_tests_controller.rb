@@ -2,6 +2,7 @@ class StiTestsController < ApplicationController
   def index
     @sti_tests = StiTest.where(user_id: session[:user_id]).order("date_taken DESC")
     @diseases = Disease.all
+    @user = session[:user_id]
   end
   def new
     @sti_test = StiTest.new
