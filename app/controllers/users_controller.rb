@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     end
   end
   def new
-    raise
     @user = User.new
     @pref = @user.build_pref
     @pronouns = Pronoun.all
