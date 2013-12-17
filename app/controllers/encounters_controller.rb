@@ -7,9 +7,7 @@ class EncountersController < ApplicationController
     @partner = Partner.find(params[:partner_id])
     @encounter = @partner.encounters.new
     @instruments = Instrument.all
-    @genital_contact = @encounter.contacts.new
-    @genitals_id = Instrument.where(part: "genitals").first.id
-
+    @user = User.find(session[:user_id])
   end
   def create
     @partner = Partner.find(params[:partner_id])
@@ -24,11 +22,14 @@ class EncountersController < ApplicationController
     @encounter = Encounter.find(params[:id])
     contacts_objects = @encounter.contacts
     @contacts = @encounter.contacts_parts
+    @partner = @encounter.partner
+    @user = @encounter.partner.user
   end
   def edit
     @encounter = Encounter.find(params[:id])
     @partner = @encounter.partner
     @contacts = @encounter.contacts
+    @user = User.find(session[:user_id])
   end
   def update
     @partner = Partner.find(params[:partner_id])

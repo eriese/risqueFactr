@@ -29,4 +29,14 @@ class User < ActiveRecord::Base
       return nil
     end
   end
+
+  def risk
+    @risk = 0
+    self.encounters.each do |encounter|
+      @risk += encounter.risk
+    end
+    @risk /= self.encounters.length
+  end
+  def partners_at_risk
+  end
 end

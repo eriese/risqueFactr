@@ -5,6 +5,8 @@ class PartnersController < ApplicationController
   end
   def new
     @partner = Partner.new
+    @pref = @partner.build_pref
+    @pronouns = Pronoun.all
     # @exclusivity_options = Partner.exclusivity_options
   end
   def create
@@ -22,6 +24,14 @@ class PartnersController < ApplicationController
   end
   def edit
     @partner = Partner.find(params[:id])
+    @pronouns = Pronoun.all
+    if @partner.pref_id
+      @pref = @partner.pref
+      @pronoun = @partner.pronoun
+    else
+      @pref = @partner.build_pref
+      @pronoun = Pronoun.first
+    end
   end
   def update
     @partner = Partner.find(params[:id])

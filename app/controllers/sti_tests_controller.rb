@@ -18,6 +18,7 @@ class StiTestsController < ApplicationController
     end
   end
   def show
+    @user = User.find(session[:user_id])
     @sti_test = StiTest.find(params[:id])
     @infections = @sti_test.infections
   end

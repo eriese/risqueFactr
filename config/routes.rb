@@ -6,6 +6,7 @@ ThirdProj::Application.routes.draw do
   post "/login" => "welcome#create"
   get "/logout" => "welcome#destroy"
   get "/users/:id/encounters" => "users#encounter"
+  # get "users/:id/encounters/new" => "users#new_encounter"
   resources :users
   resources :partners do
     resources :encounters

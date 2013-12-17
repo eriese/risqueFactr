@@ -1,8 +1,10 @@
-<%= @user.name %><br>
+<%= "#{@user.name} (#{@user.pronoun.subject})" %> <br>
+<%= "Average risk: #{@user.risk}" %><br>
 <%= link_to "edit", edit_user_path(@user) %><br>
 <% @encounters.each do |encounter| %>
   <br><%= encounter.took_place %>: <br>
   <%= encounter.partner.name %><br>
+  <%= encounter.risk %><br>
 <% end %>
 <%= link_to "new partner", new_partner_path %>
 <br>

@@ -1,6 +1,15 @@
 <%= @sti_test.date_taken %><br>
 <% @infections.each do |infection| %>
 <%= infection.disease.name %>, <%= infection.positive %><br>
-Risk-window begins: <%= infection.disease.window.strftime('%m/%d/%Y') %><br>
+  <% if infection.positive %>
+    partners at risk:<br>
+    <% @user.partners.each do |partner| %>
+      <% if partner.at_risk(infection.disease) %>
+        <%= partner.name %><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    Risk-window begins: <%= infection.disease.risk_window(@user).strftime('%m/%d/%Y') %><br>
+  <% end %>
 <% end %>
 <%= link_to "edit", edit_sti_test_path(@sti_test) %>

@@ -15,15 +15,15 @@ class Disease < ActiveRecord::Base
   has_many :infections
   has_many :sti_tests, through: :infections
 
-  def window(user)
+  def risk_window(user)
     cases = Infection.where("disease_id = ? AND positive = false AND sti_test_id IN (?)", self.id, StiTest.where(user_id: user)).sort_by do |infection|
       infection.sti_test.date_taken
     end
     if cases.any?
-    for_time = cases.last.sti_test.date_taken.to_s.split("-")
-    t = Time.mktime(for_time[0], for_time[1], for_time[2])
-    window = t - self.gestation_max * (60 * 60 * 24 * 7)
-    window
-  end
+      for_time = cases.last.sti_test.date_taken.to_s.split("-")
+      t = Time.mktime(for_time[0], for_time[1], for_time[2])
+      w = t - self.gestation_max * (60 * 60 * 24 * 7)
+      w
+    end
   end
 end

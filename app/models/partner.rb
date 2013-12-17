@@ -14,11 +14,11 @@
 #
 
 class Partner < ActiveRecord::Base
-  attr_accessible :user_id, :pref_id, :name, :frequency, :familiarity, :exclusivity
+  attr_accessible :user_id, :pref_id, :name, :frequency, :familiarity, :exclusivity, :pref_attributes
   belongs_to :user
   has_many :encounters
   belongs_to :pref
-
+  accepts_nested_attributes_for :pref
   validates :user_id, :name, :presence => true
   def most_recent
     self.encounters_by_date.first
@@ -40,5 +40,23 @@ class Partner < ActiveRecord::Base
     end
     @risk += 10 - self.familiarity
     return @risk
+  end
+  def pronoun
+    if self.pref_id
+      return self.pref.pronoun
+    else
+      return nil
+    end
+  end
+  def at_risk(disease)
+    if self.most_recent
+      if disease.risk_window(self.user)
+        return disease.risk_window(self.user) < self.most_recent.took_place
+      else
+        return true
+      end
+    else
+      return false
+    end
   end
 end

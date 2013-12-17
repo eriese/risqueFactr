@@ -4,8 +4,8 @@
 <br>
 <br>
 <% @diseases.each do |disease| %>
-  <% if disease.window %>
-    <%= "#{disease.name} risk window began: #{disease.window.strftime('%m/%d/%Y')}" %><br>
+  <% if disease.risk_window(@user) %>
+    <%= "#{disease.name} risk window began: #{disease.risk_window(@user).strftime('%m/%d/%Y')}" %><br>
   <% else %>
     <%= "#{disease.name} risk window began: NEVER TESTED, EXERCISE CAUTION" %><br>
   <% end %>

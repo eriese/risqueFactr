@@ -15,5 +15,6 @@ class Pref < ActiveRecord::Base
   has_many :users
   has_many :partners
   belongs_to :pronoun
-  accepts_nested_attributes_for :users, :partners
+  accepts_nested_attributes_for :users
+  accepts_nested_attributes_for :partners
 end

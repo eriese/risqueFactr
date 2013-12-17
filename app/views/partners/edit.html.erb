@@ -7,5 +7,13 @@
 <%= t.select :familiarity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], @partner.familiarity) %><br>
 <%= t.label :exclusivity, "How exclusively is this partner sleeping with you?" %>
 <%= t.select :exclusivity, options_for_select(["exclusive", "only having sex with known others", "not exclusive with disclosure of other partners", "not exclusive, no disclosure of other partners"], @partner.exclusivity) %><br>
+<%= t.fields_for :pref do |f| %>
+  <%= f.label :genital_name, "What do they call their genitals?", value: @pref.genital_name %>
+  <%= f.text_field :genital_name %><br>
+  <%= f.label :anus_name, "What do they call their anus?" %>
+  <%= f.text_field :anus_name, value: @pref.anus_name %><br>
+  <%= f.label :pronoun_id, "What pronouns do they use?" %>
+  <%= f.select :pronoun_id, options_from_collection_for_select(@pronouns, :id, :subject, @pronoun.id) %>
+  <% end %>
 <%= t.submit %>
 <% end %>

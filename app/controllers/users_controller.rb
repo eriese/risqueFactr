@@ -25,15 +25,17 @@ class UsersController < ApplicationController
     @partners = @user.partners
     @encounters = @user.encounters.order("took_place DESC")
     @diseases = Disease.all.map do |disease|
-      [disease.name, disease.window(session[:user_id])]
+      [disease.name, disease.risk_window(session[:user_id])]
     end
   end
   def edit
     @user = User.find(params[:id])
     if @user.pref_id
       @pref = @user.pref
+      @pronoun = @user.pronoun
     else
       @pref = @user.build_pref
+      @pronoun = Pronoun.first
     end
     @pronouns = Pronoun.all
   end
@@ -52,9 +54,12 @@ class UsersController < ApplicationController
   def encounter
     @user = User.find(params[:id])
     @partners = @user.partners
-    @encounters = @partners.map do |partner|
-      partner.encounters
-    end
-    @encounters.flatten!
+    @encounters = @user.encounters.order("took_place DESC")
+  end
+  def new_encounter
+    @user = User.find(session[:user_id])
+    @partners = Partner.where(user_id: session[:user_id])
+    @encounter = Encounter.new
+    @instruments = Instrument.all
   end
 end

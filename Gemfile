@@ -55,3 +55,5 @@ gem "launchy", :group => [:test, :development]
 gem "better_errors", :group => [:development]
 gem "simplecov", :require => false, :group => :test
 gem "haml-rails"
+gem "guard-sass", :group => [:development]
+gem "guard-livereload", :group => [:development]
