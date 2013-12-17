@@ -31,11 +31,22 @@ class User < ActiveRecord::Base
   end
 
   def risk
-    @risk = 0
-    self.encounters.each do |encounter|
-      @risk += encounter.risk
+    if self.encounters.any?
+      @risk = 0
+      self.encounters.each do |encounter|
+        @risk += encounter.risk
+      end
+      @risk /= self.encounters.length
+      if @risk <= 4
+        return @risk = "low"
+      elsif @risk <= 8
+        return @risk = "medium"
+      else
+        return @risk = "high"
+      end
+    else
+      return @risk = "we need more info to calculate that"
     end
-    @risk /= self.encounters.length
   end
   def partners_at_risk
   end
