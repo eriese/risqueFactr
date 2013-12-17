@@ -3,11 +3,12 @@
   <%= "Average risk: #{@user.risk}" %><br>
   <% @diseases.each do |disease| %>
   <% if disease[1] %>
-    <%= "#{disease[0]} risk window began: #{disease[1].strftime('%m/%d/%Y')}" %><br>
-  <% end %>
+    <%= "#{disease[0]} risk window began: #{disease[1].strftime('%m/%d/%Y')}" %>
+  <% else %>
+    <%= "No test data for #{disease[0]}; consider getting tested." %>
+  <% end %><br>
 <% end %>
   <%= link_to "edit", edit_user_path(@user) %><br>
-  <%= link_to "new partner", new_partner_path %>
 </div>
 <div class="dashes"></div>
 <div class="right">
@@ -16,7 +17,14 @@
     <li><% @encounters.each do |encounter| %>
         <br><%= link_to encounter.took_place, partner_encounter_path(encounter.partner, encounter) %>: <br>
         <%= encounter.partner.name %><br>
-        <%= encounter.risk %><br>
+        Risk level:
+        <% if encounter.risk <= 4 %>
+        low
+      <% elsif encounter.risk <= 8 %>
+        medium
+      <% else %>
+        high
+      <% end %><br>
       <% end %>
     </li>
   </ul>

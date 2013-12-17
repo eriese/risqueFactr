@@ -36,9 +36,9 @@ class Encounter < ActiveRecord::Base
   end
   def risk
     @risk = 0
-    @risk += self.no_barrier.length
+    @risk += self.no_barrier.length * 2
     @risk += self.with_barrier.length / 2
-    @risk *= 5 if self.fluid
+    @risk += 4 if self.fluid
     @risk *= partner.risk
     @risk /= 10
     @risk += self.self_risk

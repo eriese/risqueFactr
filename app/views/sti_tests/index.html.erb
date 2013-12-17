@@ -15,8 +15,7 @@
         <%= "#{disease.name} risk window began:"%><br>
         <%=" #{disease.risk_window(@user).strftime('%m/%d/%Y')}" %>
     <% else %>
-      <%= "#{disease.name} risk window began:"%><br>
-      <%= "NEVER TESTED, EXERCISE CAUTION" %>
+      <%= "No test data for #{disease.name}; consider getting tested."%>
     </li>
     <% end %>
   <% end %>

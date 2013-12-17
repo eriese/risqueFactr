@@ -15,7 +15,7 @@
       <% else %>
         <%= "my #{Instrument.find(contact.user_instrument).part} came in contact with " %>
       <% end %>
-      <% if @partner.pref.pronoun %>
+      <% if @partner.pref_id %>
         <%= @partner.pronoun.possessive %><br>
       <% else %>
         <%= "their" %><br>
