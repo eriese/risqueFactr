@@ -1,12 +1,24 @@
-<% @sti_tests.each do |sti_test| %>
-  <%= link_to sti_test.date_taken, sti_test_path(sti_test) %><br>
-<% end %>
-<br>
-<br>
-<% @diseases.each do |disease| %>
-  <% if disease.risk_window(@user) %>
-    <%= "#{disease.name} risk window began: #{disease.risk_window(@user).strftime('%m/%d/%Y')}" %><br>
-  <% else %>
-    <%= "#{disease.name} risk window began: NEVER TESTED, EXERCISE CAUTION" %><br>
+<div class="center">
+  <% @sti_tests.each do |sti_test| %>
+    <%= link_to sti_test.date_taken, sti_test_path(sti_test) %><br>
   <% end %>
-<% end %>
+  <br>
+  <br>
+  <%= link_to "Add a test", new_sti_test_path %>
+</div>
+<div class="dashes"></div>
+<div class="right">
+  <ul>
+  <% @diseases.each do |disease| %>
+  <li>
+    <% if disease.risk_window(@user) %>
+        <%= "#{disease.name} risk window began:"%><br>
+        <%=" #{disease.risk_window(@user).strftime('%m/%d/%Y')}" %>
+    <% else %>
+      <%= "#{disease.name} risk window began:"%><br>
+      <%= "NEVER TESTED, EXERCISE CAUTION" %>
+    </li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>

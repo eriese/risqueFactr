@@ -1,0 +1,98 @@
+$main: #083a34;
+$dark: darken($main, 9);
+$light: lighten($main, 78);
+$dash-width: 8px;
+$nav-width: 260px;
+$off-white: lighten(desaturate(#083a34, 75), 83);
+$color-pop: #870BDB;
+$pop-light: lighten(saturate($color-pop, 9), 46);
+$offset: 20px;
+body {
+  background-color: $off-white;
+  h2 {
+    font-size: 28px;
+  }
+}
+a {
+  text-decoration: none;
+  color: $color-pop;
+}
+.nav {
+  position: fixed;
+  width: $nav-width;
+  height: 100%;
+  overflow: scroll;
+  background-color: $dark;
+  color: $off-white;
+  h1 {
+    padding: 10px;
+    font-size: 48px;
+  }
+  li {
+    padding: 5%;
+    font-size: 28px;
+    margin-left: $offset * 2;
+    color: $main;
+  }
+  a {
+    color: $main;
+  }
+}
+.center {
+  margin-top: $offset;
+  margin-left: $nav-width;
+  width: 50%;
+  display: inline-block;
+  text-align: left;
+  color: $dark;
+  height: 100%;
+  padding: $offset;
+  h1 {
+    font-size: 40px;
+    color: $color-pop;
+  }
+  h2 {
+    font-size: 32px;
+    color: $main;
+  }
+  a {
+    color: $color-pop;
+  }
+  ul {
+    margin-left: $offset;
+  }
+}
+.right {
+  position: fixed;
+  display: inline-block;
+  width: 21%;
+  background-color: $light;
+  color: $main;
+  overflow: scroll;
+  height: 100%;
+  border-left: 2px dashed $main;
+  padding: $offset;
+  padding-left: $offset * 2;
+  padding-bottom: $offset;
+  margin-left: $dash-width;
+  ul {
+    width: 80%;
+    margin: 5px auto;
+  }
+}
+.dashes {
+  width: $dash-width;
+  position: fixed;
+  display: inline-block;
+  height: 100%;
+  border-left: 3px dashed $main;
+  background-color: $light;
+}
+
+.poz {
+  color: red;
+}
+
+.neg {
+  color: #00FF00;
+}

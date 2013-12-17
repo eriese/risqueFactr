@@ -1,20 +1,32 @@
-<% @partners.each do |partner| %>
-  <h2><%= link_to partner.name, partner_path(partner) %></h2><br>
-  <h3>Most recent encounter:</h3>
-  <% if partner.most_recent %>
-    fluid exchange: <%= partner.most_recent.fluid %><br>
-    date: <%= partner.most_recent.took_place %><br>
-    self-assessed risk level: <%= partner.most_recent.self_risk %><br>
-    risk:
-    <% if partner.most_recent.risk <= 4 %>
-      low
-    <% elsif partner.most_recent.risk <= 8 %>
-      medium
-    <% else %>
-      high
-    <% end %><br>
-    notes: <%= partner.most_recent.notes %><br>
+<div class="center"><% @partners.each do |partner| %>
+    <h2><%= link_to partner.name, partner_path(partner) %></h2><br>
+    <h3>Most recent encounter:</h3>
+    <% if partner.most_recent %>
+      fluid exchange: <%= partner.most_recent.fluid %><br>
+      date: <%= partner.most_recent.took_place %><br>
+      self-assessed risk level: <%= partner.most_recent.self_risk %><br>
+      risk:
+      <% if partner.most_recent.risk <= 4 %>
+        low
+      <% elsif partner.most_recent.risk <= 8 %>
+        medium
+      <% else %>
+        high
+      <% end %><br>
+      notes: <%= partner.most_recent.notes %><br>
+    <% end %>
+    <br><br>
   <% end %>
-<% end %>
-<br>
-<%= link_to "New Partner", new_partner_path %>
+  <br>
+  <%= link_to "New Partner", new_partner_path %></div>
+  <div class="dashes"></div>
+  <div class="right">
+    Partners within your risk windows:
+    <ul>
+    <% @at_risk.each do |partner| %>
+      <li>
+        <%= partner.name %>
+      </li>
+    <% end %>
+    </ul>
+  </div>

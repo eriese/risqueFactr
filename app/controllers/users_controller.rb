@@ -7,9 +7,12 @@ class UsersController < ApplicationController
     end
   end
   def new
+    raise
     @user = User.new
     @pref = @user.build_pref
     @pronouns = Pronoun.all
+    @email = params[:email]
+    @password = params[:password]
   end
   def create
     @user = User.new(params[:user])

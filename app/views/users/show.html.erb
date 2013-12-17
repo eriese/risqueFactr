@@ -1,16 +1,23 @@
-<%= "#{@user.name} (#{@user.pronoun.subject})" %> <br>
-<%= "Average risk: #{@user.risk}" %><br>
-<%= link_to "edit", edit_user_path(@user) %><br>
-<% @encounters.each do |encounter| %>
-  <br><%= encounter.took_place %>: <br>
-  <%= encounter.partner.name %><br>
-  <%= encounter.risk %><br>
-<% end %>
-<%= link_to "new partner", new_partner_path %>
-<br>
-<br>
-<% @diseases.each do |disease| %>
+<div class="center">
+  <h1><%= "#{@user.name} (#{@user.pronoun.subject})" %></h1> <br>
+  <%= "Average risk: #{@user.risk}" %><br>
+  <% @diseases.each do |disease| %>
   <% if disease[1] %>
     <%= "#{disease[0]} risk window began: #{disease[1].strftime('%m/%d/%Y')}" %><br>
   <% end %>
 <% end %>
+  <%= link_to "edit", edit_user_path(@user) %><br>
+  <%= link_to "new partner", new_partner_path %>
+</div>
+<div class="dashes"></div>
+<div class="right">
+  <h2>Recent Encounters:</h2>
+  <ul>
+    <li><% @encounters.each do |encounter| %>
+        <br><%= link_to encounter.took_place, partner_encounter_path(encounter.partner, encounter) %>: <br>
+        <%= encounter.partner.name %><br>
+        <%= encounter.risk %><br>
+      <% end %>
+    </li>
+  </ul>
+</div>

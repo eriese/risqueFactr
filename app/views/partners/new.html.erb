@@ -1,19 +1,19 @@
-<%= form_for @partner do |t| %>
-<%= t.label :name %>
-<%= t.text_field :name %><br>
-<%= t.label :frequency, "Frequency of encounters" %>
-<%= t.select :frequency, options_for_select(["one night stand", "every once in a while", "weekly", "multiple times a week"]) %><br>
-<%= t.label :familiarity, "How would you rate your familiarity/trust level?" %>
-<%= t.select :familiarity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) %><br>
-<%= t.label :exclusivity, "How exclusively is this partner sleeping with you?" %>
-<%= t.select :exclusivity, options_for_select(["exclusive", "only having sex with known others", "not exclusive with disclosure of other partners", "not exclusive, no disclosure of other partners"]) %><br>
-<%= t.fields_for :pref do |f| %>
-  <%= f.label :genital_name, "What do they call their genitals?" %>
-  <%= f.text_field :genital_name %><br>
-  <%= f.label :anus_name, "What do they call their anus?" %>
-  <%= f.text_field :anus_name %><br>
-  <%= f.label :pronoun_id, "What pronouns do they use?" %>
-  <%= f.select :pronoun_id, options_from_collection_for_select(@pronouns, :id, :subject) %>
-  <% end %>
-<%= t.submit %>
-<% end %>
+<div class="center"><%= form_for @partner do |t| %>
+  <%= t.label :name %>
+  <%= t.text_field :name %><br>
+  <%= t.label :frequency, "Frequency of encounters" %>
+  <%= t.select :frequency, options_for_select(["one night stand", "every once in a while", "weekly", "multiple times a week"]) %><br>
+  <%= t.label :familiarity, "How would you rate your familiarity/trust level?" %>
+  <%= t.select :familiarity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) %><br>
+  <%= t.label :exclusivity, "How exclusively is this partner sleeping with you?" %>
+  <%= t.select :exclusivity, options_for_select(["exclusive", "only having sex with known others", "not exclusive with disclosure of other partners", "not exclusive, no disclosure of other partners"]) %><br>
+  <%= t.fields_for :pref do |f| %>
+    <%= f.label :genital_name, "What do they call their genitals?" %>
+    <%= f.text_field :genital_name %><br>
+    <%= f.label :anus_name, "What do they call their anus?" %>
+    <%= f.text_field :anus_name %><br>
+    <%= f.label :pronoun_id, "What pronouns do they use?" %>
+    <%= f.select :pronoun_id, options_from_collection_for_select(@pronouns, :id, :subject) %>
+    <% end %><br>
+  <%= t.submit %>
+  <% end %></div>
