@@ -6,6 +6,7 @@ class EncountersController < ApplicationController
   def new
     @partner = Partner.find(params[:partner_id])
     @encounter = @partner.encounters.new
+    @contact = @encounter.contacts.new
     @instruments = Instrument.all
     @user = User.find(session[:user_id])
   end

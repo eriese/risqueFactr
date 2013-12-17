@@ -3,26 +3,26 @@
   self-assessed risk: <%= t.select :self_risk, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) %><br>
   <%= t.text_area :notes %><br>
     <% @instruments.each do |instrument| %>
-    <% if @user.pref_id %>
-      <% if instrument.part == "genitals" %>
-        <%= "my #{@user.pref.genital_name} came in contact with " %>
-      <% elsif instrument.part == "anus" %>
-        <%= "my #{@user.pref.anus_name} came in contact with" %>
+      <% if @user.pref_id != nil && !(@user.pref.genital_name.empty? || @user.pref.anus_name.empty?) %>
+        <% if instrument.part == "genitals" %>
+          <%= "my #{@user.pref.genital_name} came in contact with " %>
+        <% elsif instrument.part == "anus" %>
+          <%= "my #{@user.pref.anus_name} came in contact with" %>
+        <% else %>
+          <%= "my #{instrument.part} came in contact with " %>
+        <% end %>
       <% else %>
         <%= "my #{instrument.part} came in contact with " %>
       <% end %>
-    <% else %>
-      <%= "my #{instrument.part} came in contact with " %>
-    <% end %>
-    <% if @partner.pref_id %>
-      <%= @partner.pronoun.possessive %><br>
-    <% else %>
-      <%= "their" %><br>
-    <% end %>
+      <% if @partner.pref_id %>
+        <%= @partner.pronoun.possessive %><br>
+      <% else %>
+        <%= "their" %><br>
+      <% end %>
       <% @instruments.each do |inst| %>
         <%= t.fields_for :contacts do |builder| %>
           <%= builder.check_box :partner_instrument, {}, inst.id, nil %>
-          <% if @partner.pref_id %>
+          <% if @partner.pref_id != nil &&  !(@partner.pref.genital_name.empty? || @partner.pref.anus_name.empty?) %>
             <% if inst.part == "genitals" %>
               <%= @partner.pref.genital_name %>
             <% elsif inst.part == "anus" %>

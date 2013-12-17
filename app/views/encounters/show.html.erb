@@ -5,7 +5,7 @@
   app-assessed risk level: <%= @encounter.risk %><br>
   notes: <%= @encounter.notes %><br>
   <% @contacts.each do |contact| %>
-  <% if @user.pref_id %>
+  <% if @user.pref_id != nil && !(@user.pref.genital_name.empty? || @user.pref.anus_name.empty?) %>
       <% if contact[0] == "genitals" %>
         <%= "your #{@user.pref.genital_name} came in contact with " %>
       <% elsif contact[0] == "anus" %>
@@ -21,7 +21,7 @@
     <% else %>
       <%= "their" %>
     <% end %>
-    <% if @partner.pref_id %>
+    <% if @partner.pref_id != nil && !(@partner.pref.genital_name.empty? || @partner.pref.anus_name.empty?) %>
       <% if contact[1] == "genitals" %>
         <%= @partner.pref.genital_name %>
       <% elsif contact[1] == "anus" %>
