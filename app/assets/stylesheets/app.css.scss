@@ -4,6 +4,7 @@ $light: lighten($main, 78);
 $dash-width: 8px;
 $nav-width: 260px;
 $off-white: lighten(desaturate(#083a34, 75), 83);
+$grey: lighten(desaturate(#083a34, 75), 72);
 $color-pop: #870BDB;
 $pop-light: lighten(saturate($color-pop, 9), 46);
 $offset: 20px;
@@ -23,7 +24,7 @@ a {
   height: 100%;
   overflow: scroll;
   background-color: $dark;
-  color: $off-white;
+  color: $main;
   h1 {
     padding: 10px;
     font-size: 48px;
@@ -32,10 +33,10 @@ a {
     padding: 5%;
     font-size: 28px;
     margin-left: $offset * 2;
-    color: $main;
+    color: $off-white;
   }
   a {
-    color: $main;
+    color: $off-white;
   }
 }
 .center {

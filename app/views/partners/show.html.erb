@@ -1,10 +1,10 @@
 <div class="center">
   <%= @partner.name %><br>
-<%= @partner.frequency %><br>
-<%= @partner.familiarity %><br>
-<%= @partner.exclusivity %>
-<br>
-<%= link_to "edit", edit_partner_path(@partner) %>
+  Frequency of encounters: <%= @partner.frequency %><br>
+  Exclusivity: <%= @partner.exclusivity %><br>
+  Trust level: <%= @partner.familiarity %><br>
+  <br>
+  <%= link_to "edit", edit_partner_path(@partner) %>
 </div>
 <div class="dashes"></div>
 <div class="right">
