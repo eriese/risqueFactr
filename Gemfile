@@ -37,7 +37,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 # gem 'debugger'
 
-gem "guard", :group => [:test, :development]
 gem "rspec-rails", :group => [:test, :development]
 gem "capybara", :group => [:test, :development]
 gem "selenium-webdriver", :group => [:test, :development]
@@ -55,5 +54,6 @@ gem "launchy", :group => [:test, :development]
 gem "better_errors", :group => [:development]
 gem "simplecov", :require => false, :group => :test
 gem "haml-rails"
-gem "guard-sass", :group => [:development]
+gem "guard", :group => [:test, :development]
+
 gem "guard-livereload", :group => [:development]
