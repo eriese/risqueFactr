@@ -4,8 +4,12 @@ rvm:
   - jruby-18mode # JRuby in 1.8 mode
   - jruby-19mode # JRuby in 1.9 mode
   - rbx
+services: postgrseql
+
+before_script:
+  - psql -c 'create database third_proj_test;' -U postgres
 # uncomment this line if your project needs to run something other than `rake`:
-script: bundle exec rake db:create RAILS_ENV=test
+
 script: bundle exec rake db:migrate RAILS_ENV=test
 script: bundle exec rake db:seed RAILS_ENV=test
 script: bundle exec rspec spec
