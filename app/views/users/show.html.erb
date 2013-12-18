@@ -1,5 +1,8 @@
 <div class="center">
-  <h1><%= "#{@user.name} (#{@user.pronoun.subject})" %></h1> <br>
+  <h1><%= "#{@user.name}" %>
+    <% if @user.pref_id %>
+      <%= " (#{@user.pronoun.subject})" %></h1> <br>
+    <% end %>
   <%= "Average risk: #{@user.risk}" %><br>
   <% @diseases.each do |disease| %>
   <% if disease[1] %>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     if session[:user_id]
       redirect_to "/users/#{session[:user_id]}"
     else
-      redirect_to new_welcome_path
+      redirect_to "/login"
     end
   end
   def new

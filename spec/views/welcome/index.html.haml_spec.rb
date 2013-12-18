@@ -11,14 +11,14 @@ describe "welcome/index" do
     it "offers a log in form" do
       expect(page).to have_field("email")
       expect(page).to have_field("password")
-      expect(page).to have_button("Log in")
+      expect(page).to have_button("Log In")
     end
     describe "user must sign up" do
       it "offers a sign up link" do
-        expect(page).to have_link("Sign up")
+        expect(page).to have_link("Sign Up")
       end
       it "takes you to the sign up page" do
-        click_link "Sign up"
+        click_link "Sign Up"
         expect(page).to have_field("user_name")
         expect(page).to have_field("user_email")
         expect(page).to have_field("user_password")
@@ -34,7 +34,7 @@ describe "welcome/index" do
         u1 = User.create({name: "Enoch", email: "enoch@enoch.com", password: "pass", password_confirmation: "pass"})
         fill_in "email", with: u1.email
         fill_in "password", with: u1.password
-        click_button "Log in"
+        click_button "Log In"
         expect(page).to have_content(u1.name)
         expect(current_path).to eq("/users/#{u1.id}")
       end
@@ -45,7 +45,7 @@ describe "welcome/index" do
       @u1 = User.create({name: "Enoch", email: "enoch@enoch.com", password: "pass", password_confirmation: "pass"})
       fill_in "email", with: @u1.email
       fill_in "password", with: @u1.password
-      click_button "Log in"
+      click_button "Log In"
       visit "/"
     end
     it "redirects to the dash" do
@@ -53,10 +53,10 @@ describe "welcome/index" do
       expect(current_path).to eq("/users/#{@u1.id}")
     end
     it "has a log out link" do
-      expect(page).to have_link("Log out")
+      expect(page).to have_link("Log Out")
     end
     it "log out link logs user out" do
-      click_link("Log out")
+      click_link("Log Out")
       expect(current_path).to eq("/login")
       expect(page).to have_no_link("Dash")
     end
