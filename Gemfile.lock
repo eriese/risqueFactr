@@ -273,5 +273,4 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 3.2.3)
   selenium-webdriver
-  simplecov
   uglifier (>= 1.0.3)
