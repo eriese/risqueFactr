@@ -1,3 +1,6 @@
+require 'coveralls/rake/task'
+Coveralls::RakeTask.new
+
 namespace :travis do
 
   desc "Prepare DB and run Tests"
