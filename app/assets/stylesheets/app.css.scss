@@ -1,6 +1,10 @@
+$script-font: 'Lily Script One', cursive;
+$outline-font: 'Londrina Outline', cursive;
+$text-font: 'Fanwood Text', serif;
 $main: #083a34;
 $dark: darken($main, 9);
 $light: lighten($main, 78);
+$contrast: lighten(saturate($main, 24), 3);
 $dash-width: 8px;
 $nav-width: 260px;
 $off-white: lighten(desaturate(#083a34, 75), 83);
@@ -9,6 +13,7 @@ $color-pop: #870BDB;
 $pop-light: lighten(saturate($color-pop, 9), 46);
 $offset: 20px;
 body {
+  font-family: $text-font;
   background-color: $off-white;
   h2 {
     font-size: 28px;
@@ -24,10 +29,14 @@ a {
   height: 100%;
   overflow: scroll;
   background-color: $dark;
-  color: $main;
+  color: $contrast;
   h1 {
+    font-family: $script-font;
     padding: 10px;
     font-size: 48px;
+  }
+  span {
+    font-family: $outline-font;
   }
   li {
     padding: 5%;

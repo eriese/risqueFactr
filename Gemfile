@@ -52,7 +52,6 @@ gem "rails-erd", :group => [:test, :development]
 gem "awesome_print", :group => [:test, :development]
 gem "launchy", :group => [:test, :development]
 gem "better_errors", :group => [:development]
-gem "simplecov", :require => false, :group => :test
 gem "haml-rails"
 gem "guard", :group => [:test, :development]
 
