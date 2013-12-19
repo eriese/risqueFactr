@@ -12,9 +12,11 @@ $grey: lighten(desaturate(#083a34, 75), 72);
 $color-pop: #870BDB;
 $pop-light: lighten(saturate($color-pop, 9), 46);
 $offset: 20px;
+$standard: 18px;
 body {
   font-family: $text-font;
   background-color: $off-white;
+  font-size: 18px;
   h2 {
     font-size: 28px;
   }
@@ -57,6 +59,7 @@ a {
   color: $dark;
   height: 100%;
   padding: $offset;
+  font-size: 20px;
   h1 {
     font-size: 40px;
     color: $color-pop;
@@ -70,6 +73,13 @@ a {
   }
   ul {
     margin-left: $offset;
+  }
+  strong {
+    font-size: 24 px;
+    color: $color-pop;
+  }
+  textarea {
+    height: 50px;
   }
 }
 .right {
@@ -105,4 +115,16 @@ a {
 
 .neg {
   color: #00FF00;
+}
+
+.low {
+  color: #00FF00;
+}
+
+.medium {
+  color: #FF9B0D;
+}
+
+.high {
+  color: red;
 }

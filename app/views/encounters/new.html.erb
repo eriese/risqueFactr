@@ -1,18 +1,19 @@
 <div class="center"><%= form_for [@partner, @encounter] do |t|%>
   <%= t.date_select :took_place %><br>
-  self-assessed risk: <%= t.select :self_risk, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) %><br>
+  Self-assessed risk: <%= t.select :self_risk, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) %><br>
+  <%= t.label :notes %><br>
   <%= t.text_area :notes %><br>
     <% @instruments.each do |instrument| %>
-      <% if @user.pref_id != nil && !(@user.pref.genital_name.empty? || @user.pref.anus_name.empty?) %>
-        <% if instrument.part == "genitals" %>
-          <%= "my #{@user.pref.genital_name} came in contact with " %>
-        <% elsif instrument.part == "anus" %>
-          <%= "my #{@user.pref.anus_name} came in contact with" %>
+      <% if @user.pref_id != nil %>
+        <% if instrument.part == "genitals" && !@user.pref.genital_name.empty? %>
+          My <strong><%= @user.pref.genital_name%></strong> came in contact with
+        <% elsif instrument.part == "anus" && !@user.pref.anus_name.empty?%>
+          My <strong><%= @user.pref.anus_name%></strong> came in contact with
         <% else %>
-          <%= "my #{instrument.part} came in contact with " %>
+          My <strong><%= instrument.part %></strong> came in contact with
         <% end %>
       <% else %>
-        <%= "my #{instrument.part} came in contact with " %>
+        My <strong><%= instrument.part %></strong> came in contact with
       <% end %>
       <% if @partner.pref_id %>
         <%= @partner.pronoun.possessive %><br>
@@ -22,10 +23,10 @@
       <% @instruments.each do |inst| %>
         <%= t.fields_for :contacts do |builder| %>
           <%= builder.check_box :partner_instrument, {}, inst.id, nil %>
-          <% if @partner.pref_id != nil &&  !(@partner.pref.genital_name.empty? || @partner.pref.anus_name.empty?) %>
-            <% if inst.part == "genitals" %>
+          <% if @partner.pref_id != nil %>
+            <% if inst.part == "genitals" && !@partner.pref.genital_name.empty?%>
               <%= @partner.pref.genital_name %>
-            <% elsif inst.part == "anus" %>
+            <% elsif inst.part == "anus" && !@partner.pref.anus_name.empty? %>
               <%= @partner.pref.anus_name  %>
             <% else %>
               <%= inst.part %>
@@ -36,7 +37,7 @@
           <%= builder.hidden_field :user_instrument, value: "#{instrument.id}" %>
           <%= builder.check_box :barriers %> with a barrier <br>
         <% end %>
-      <% end %>
+      <% end %><br>
     <% end %>
     <%= t.check_box :fluid, value: true %>fluid exchange not accounted for (e.g. ejaculate in eyes, nose, or open cuts)<br>
   <%= t.submit %>

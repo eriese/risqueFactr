@@ -3,14 +3,19 @@
     <% if @user.pref_id %>
       <%= " (#{@user.pronoun.subject})" %></h1> <br>
     <% end %>
-  <%= "Average risk: #{@user.risk}" %><br>
+  Average risk:
+
+    <span class=<%=@user.risk%>><%= @user.risk %></span>
+  <br><br>
   <% @diseases.each do |disease| %>
-  <% if disease[1] %>
-    <%= "#{disease[0]} risk window began: #{disease[1].strftime('%m/%d/%Y')}" %>
-  <% else %>
-    <%= "No test data for #{disease[0]}; consider getting tested." %>
-  <% end %><br>
-<% end %>
+    <% if disease[1] %>
+      <strong><%= disease[0] %></strong> risk window began:
+        <%=" #{disease[1].strftime('%m/%d/%Y')}" %>
+      <% else %>
+        No test data for <strong><%= disease[0] %></strong>; consider getting tested.
+    <% end %><br>
+    <br>
+  <% end %>
   <%= link_to "edit", edit_user_path(@user) %><br>
 </div>
 <div class="dashes"></div>
@@ -22,11 +27,11 @@
         <%= encounter.partner.name %><br>
         Risk level:
         <% if encounter.risk <= 4 %>
-        low
+          <span class="low">low</span>
         <% elsif encounter.risk <= 8 %>
-          medium
+          <span class="medium">medium</span>
         <% else %>
-          high
+          <span class="high">high</span>
         <% end %><br>
       <% end %>
     </li>

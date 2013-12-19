@@ -5,7 +5,7 @@
     <% if infection.positive %>
       <span class="poz">positive</span><br>
       <div class="risk-partners">
-        partners at risk:<br>
+        Partners at risk:<br>
         <ul>
           <% @user.partners.each do |partner| %>
             <% if partner.at_risk(infection.disease) %>

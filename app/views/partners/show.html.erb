@@ -1,5 +1,5 @@
 <div class="center">
-  <%= @partner.name %><br>
+  <h1><%= @partner.name %></h1><br>
   Frequency of encounters: <%= @partner.frequency %><br>
   Exclusivity: <%= @partner.exclusivity %><br>
   Trust level: <%= @partner.familiarity %><br>
@@ -10,7 +10,16 @@
 <div class="right">
   <% @encounters.each do |encounter| %>
     <%= link_to encounter.took_place, partner_encounter_path(@partner, encounter)%><br>
-    Self-assessed risk: <%= encounter.self_risk %><br>
+    Self-assessed risk:
+    <%= encounter.self_risk%><br>
+    App-assessed risk:
+    <% if encounter.risk <= 4 %>
+        <span class="low">low</span>
+      <% elsif encounter.risk <= 8 %>
+        <span class="medium">medium</span>
+      <% else %>
+        <span class="high">high</span>
+      <% end %><br>
     Notes: <%= encounter.notes %><br>
     <br>
   <% end %>
