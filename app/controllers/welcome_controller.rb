@@ -8,8 +8,12 @@ class WelcomeController < ApplicationController
   end
   def create
     @user = User.where(email: params[:email]).first.try(:authenticate, params[:password])
-    session[:user_id] = @user.id
-    redirect_to "/users"
+    if @user
+      session[:user_id] = @user.id
+      redirect_to "/users"
+    else
+      redirect_to "/login"
+    end
   end
   def destroy
     session[:user_id] = nil
