@@ -22,23 +22,32 @@
       <% end %>
       <% @instruments.each do |inst| %>
         <%= t.fields_for :contacts do |builder| %>
+        <% if instrument.part == "hand"%>
+          <% if inst.part != "hand" && inst.part != "toys" %>
+            <%= builder.check_box :partner_instrument, {}, inst.id, nil %> <%= inst.part %>
+            <%= builder.check_box :barriers %> with a barrier <br>
+          <% end %>
+        <% elsif instrument.part == "toys"%>
+          <% if inst.part != "hand" && inst.part != "toys" %>
+            <%= builder.check_box :partner_instrument, {}, inst.id, nil %> <%= inst.part %>
+            <%= builder.check_box :barriers %> with a barrier <br>
+          <% end %>
+        <% else %>
           <%= builder.check_box :partner_instrument, {}, inst.id, nil %>
-          <% if @partner.pref_id != nil %>
-            <% if inst.part == "genitals" && !@partner.pref.genital_name.empty?%>
-              <%= @partner.pref.genital_name %>
-            <% elsif inst.part == "anus" && !@partner.pref.anus_name.empty? %>
-              <%= @partner.pref.anus_name  %>
-            <% else %>
-              <%= inst.part %>
-            <% end %>
+          <% if @partner.pref_id != nil && inst.part == "genitals" && !@partner.pref.genital_name.empty?%>
+            <%= @partner.pref.genital_name %>
+          <% elsif @partner.pref_id != nil &&inst.part == "anus" && !@partner.pref.anus_name.empty? %>
+            <%= @partner.pref.anus_name  %>
           <% else %>
             <%= inst.part %>
           <% end %>
           <%= builder.hidden_field :user_instrument, value: "#{instrument.id}" %>
           <%= builder.check_box :barriers %> with a barrier <br>
         <% end %>
-      <% end %><br>
-    <% end %>
-    <%= t.check_box :fluid, value: true %>fluid exchange not accounted for (e.g. ejaculate in eyes, nose, or open cuts)<br>
+      <% end %>
+    <% end %><br>
+  <% end %>
+  <%= t.check_box :fluid, value: true %>fluid exchange not accounted for (e.g. ejaculate in eyes, nose, or open cuts)<br>
   <%= t.submit %>
-  <% end %></div>
+<% end %>
+</div>
