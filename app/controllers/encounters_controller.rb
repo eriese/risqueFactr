@@ -29,12 +29,15 @@ class EncountersController < ApplicationController
   def edit
     @encounter = Encounter.find(params[:id])
     @partner = @encounter.partner
-    @contacts = @encounter.contacts
+    @contacts = @encounter.contacts.new
+    @instruments = Instrument.all
     @user = User.find(session[:user_id])
   end
   def update
+
     @partner = Partner.find(params[:partner_id])
     @encounter = Encounter.find(params[:id])
+    @encounter.contacts.destroy_all
     if @encounter.update_attributes(params[:encounter])
       params[:encounter][:contacts_attributes].each do |key, value|
         if value[:partner_instrument] == "0"

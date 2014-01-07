@@ -2,49 +2,43 @@
   <%= @user.name %> with <%= @partner.name %><br>
 
   Date: <%= @encounter.took_place %><br>
-  Self-assessed risk level: <%= @encounter.self_risk %><br>
-  App-assessed risk level: <% if @encounter.risk <= 4 %>
-        <span class="low">low</span>
-      <% elsif @encounter.risk <= 8 %>
-        <span class="medium">medium</span>
-      <% else %>
-        <span class="high">high</span>
-      <% end %><br>
+  Self-assessed risk level:
+  <%= @encounter.self_risk %><br>
+  App-assessed risk level:
+  <% if @encounter.risk <= 4 %>
+    <span class="low">low</span>
+  <% elsif @encounter.risk <= 8 %>
+    <span class="medium">medium</span>
+  <% else %>
+    <span class="high">high</span>
+  <% end %><br>
   Notes: <%= @encounter.notes %><br>
   <br>
   <% @contacts.each do |contact| %>
-  <% if @user.pref_id != nil && !(@user.pref.genital_name.empty? || @user.pref.anus_name.empty?) %>
-      <% if contact[0] == "genitals" %>
-        <%= "Your #{@user.pref.genital_name} came in contact with " %>
-      <% elsif contact[0] == "anus" %>
+  <% if @user.pref_id != nil && !@user.pref.genital_name.empty? && contact[0] == "genitals"%>
+    <%= "Your #{@user.pref.genital_name} came in contact with " %>
+  <% elsif @user.pref_id != nil && !@user.pref.anus_name.empty? && contact[0] == "anus" %>
         <%= "Your #{@user.pref.anus_name} came in contact with" %>
-      <% else %>
-        <%= "Your #{contact[0]} came in contact with " %>
-      <% end %>
-    <% else %>
-      <%= "Your #{contact[0]} came in contact with " %>
-    <% end %>
-    <% if @partner.pref_id %>
-      <%= @partner.pronoun.possessive %>
-    <% else %>
-      <%= "their" %>
-    <% end %>
-    <% if @partner.pref_id != nil && !(@partner.pref.genital_name.empty? || @partner.pref.anus_name.empty?) %>
-      <% if contact[1] == "genitals" %>
-        <%= @partner.pref.genital_name %>
-      <% elsif contact[1] == "anus" %>
-        <%= @partner.pref.anus_name %>
-      <% else %>
-        <%= contact[1] %>
-      <% end %>
-    <% else %>
-      <%= contact[1] %>
-    <% end %>
-    <% if contact[2] %>
-      <%= "with a barrier" %><br>
-    <% else %>
-      <%= "without a barrier" %><br>
-    <% end %>
+  <% else %>
+    <%= "Your #{contact[0]} came in contact with " %>
+  <% end %>
+  <% if @partner.pref_id %>
+    <%= @partner.pronoun.possessive %>
+  <% else %>
+    <%= "their" %>
+  <% end %>
+  <% if @user.pref_id != nil && !@user.pref.genital_name.empty? && contact[1] == "genitals" %>
+    <%= @partner.pref.genital_name %>
+  <% elsif @user.pref_id != nil && !@user.pref.anus_name.empty? && contact[1] == "anus" %>
+    <%= @partner.pref.anus_name %>
+  <% else %>
+    <%= contact[1] %>
+  <% end %>
+  <% if contact[2] %>
+    <%= "with a barrier" %><br>
+  <% else %>
+    <%= "without a barrier" %><br>
+  <% end %>
   <% end %>
   Fluid exchange: <%= @encounter.fluid %> <br>
   <br><%= link_to "edit", edit_partner_encounter_path(@encounter.partner, @encounter)%></div>
