@@ -27,9 +27,9 @@
   <% else %>
     <%= "their" %>
   <% end %>
-  <% if @user.pref_id != nil && !@user.pref.genital_name.empty? && contact[1] == "genitals" %>
+  <% if @partner.pref_id != nil && !@partner.pref.genital_name.empty? && contact[1] == "genitals" %>
     <%= @partner.pref.genital_name %>
-  <% elsif @user.pref_id != nil && !@user.pref.anus_name.empty? && contact[1] == "anus" %>
+  <% elsif @partner.pref_id != nil && !@partner.pref.anus_name.empty? && contact[1] == "anus" %>
     <%= @partner.pref.anus_name %>
   <% else %>
     <%= contact[1] %>
