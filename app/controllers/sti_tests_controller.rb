@@ -25,6 +25,7 @@ class StiTestsController < ApplicationController
   end
   def edit
     @sti_test = StiTest.find(params[:id])
+    @sti_test.prep_for_update
     @infections = @sti_test.infections
     @diseases = Disease.all
   end
@@ -32,7 +33,7 @@ class StiTestsController < ApplicationController
     @sti_test = StiTest.find(params[:id])
     if @sti_test.update_attributes(params[:sti_test])
       params[:sti_test][:infections_attributes].each do |key, value|
-        if value[:positive] == "_destroy"
+        if value[:positive] == "_destroy" && value[:id]
           Infection.find(value[:id]).destroy
         end
       end
