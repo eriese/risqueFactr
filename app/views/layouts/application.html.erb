@@ -28,4 +28,14 @@
 <%= yield %>
 
 </body>
+<link rel="stylesheet" href="https://d345spfe4d65od.cloudfront.net/static/tourmyapp/v1/tourmyapp.css" type="text/css">
+<script type="text/javascript" src="https://d345spfe4d65od.cloudfront.net/static/tourmyapp/v1/tourmyapp.js"></script>
+
+  <script type="text/javascript">
+  var tour;
+  jQuery(document).ready(function() {
+      tour = new TourMyApp("592e253e8a039c92f574da21caa07cf7"); // REPLACE WITH YOUR ACCOUNT TOKEN
+      tour.start("532298efbc1fbe2d840013ba");
+  });
+  </script>
 </html>
