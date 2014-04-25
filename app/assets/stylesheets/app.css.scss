@@ -3,17 +3,17 @@ $outline-font: 'Londrina Outline', cursive;
 $text-font: 'Fanwood Text', serif;
 $old-main: #083a34;
 $main: #082D73;
-$crossover: rgba(8,45,115,0.8);
+$crossover: rgba(8,45,115,0.75);
 $dark: darken($main, 9);
 $light: lighten($main, 78);
 $contrast: lighten(saturate($main, 24), 11);
 $dash-width: 4px;
 $nav-width: 15%;
 $nav-offset: 40px;
-$right-depth: 300px;
+$right-depth: 250px;
 $right-width: $right-depth + $nav-offset;
 $center-width: 55%;
-$nav-depth: 60px;
+$nav-depth: 55px;
 $nav-height: $nav-depth + $nav-offset;
 $off-white: lighten(desaturate(#083a34, 75), 83);
 $grey: lighten(desaturate(#083a34, 75), 72);
@@ -43,7 +43,7 @@ a {
   height: $nav-depth;
   margin-top: $nav-offset;
   padding-left: $nav-offset;
-  padding-bottom: 5px;
+  // padding-bottom: 5px;
   min-width: 900px;
   // overflow: scroll;
   z-index: 1;
@@ -61,11 +61,11 @@ a {
   }
   #logo {
     margin-left: 10px;
-    margin-right: 100px;
+    margin-right: 60px;
     display: inline-block;
     text-align: right;
-    font-size: 48px;
-    padding: 5px;
+    font-size: 44px;
+    // padding: 5px;
     width: 160px;
     font-family: $script-font;
     color: $color-pop;
@@ -80,7 +80,7 @@ a {
   }
   li {
     // padding-bottom: 50px;
-    font-size: 28px;
+    font-size: 25px;
     margin-left: $offset * 2;
     color: $off-white;
     display: inline-block;
@@ -140,7 +140,7 @@ a {
     padding-top: $nav-height;
     margin: 5%;
     p {
-      font-size: 22px;
+      font-size: 20px;
     }
   }
 }
@@ -150,8 +150,8 @@ a {
   margin-left: $right-width;
   display: inline-block;
   height: 100%;
-  border-left: 2px dashed $grey;
-  border-right: 3px dashed $grey;
+  border-left: 1px dashed $grey;
+  border-right: 2px dashed $grey;
   background-color: $crossover;
   z-index: 2;
 }
