@@ -44,7 +44,7 @@ a {
   margin-top: $nav-offset;
   padding-left: $nav-offset;
   padding-top: 2px;
-  min-width: 900px;
+  // min-width: 900px;
   // overflow: scroll;
   z-index: 1;
   background-color: $crossover;
@@ -79,14 +79,16 @@ a {
   }
   ul {
     display: inline-block;
-    text-align: right;
+    width: 70%;
+    // text-align: right;
   }
   li {
     // padding-bottom: 50px;
     font-size: 25px;
-    margin-left: $offset * 2;
+    // margin-left: $offset * 2;
     color: $off-white;
     display: inline-block;
+    // width: 20%;
   }
   a {
     color: $grey;
