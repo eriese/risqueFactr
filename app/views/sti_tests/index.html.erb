@@ -1,3 +1,14 @@
+<div class="right">
+  <div id="wrapper">
+    <% @sti_tests.each do |sti_test| %>
+      <%= link_to sti_test.date_taken, sti_test_path(sti_test) %><br>
+    <% end %>
+    <br>
+    <br>
+    <%= link_to "Add a test", new_sti_test_path %>
+  </div>
+</div>
+<div class="dashes"></div>
 <div class="center">
   <ul>
   <% @diseases.each do |disease| %>
@@ -12,13 +23,4 @@
   </li><br>
   <% end %>
   </ul>
-</div>
-<div class="dashes"></div>
-<div class="right">
-  <% @sti_tests.each do |sti_test| %>
-    <%= link_to sti_test.date_taken, sti_test_path(sti_test) %><br>
-  <% end %>
-  <br>
-  <br>
-  <%= link_to "Add a test", new_sti_test_path %>
 </div>
