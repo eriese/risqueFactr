@@ -10,9 +10,12 @@
 <body>
   <div id="container">
     <div class="nav">
-          <a id="logo" href="/">
-              Risque<span>Factr</span>
-          </a>
+
+          <div id="logo">
+            <a href="/">
+                Risque<span>Factr</span>
+            </a>
+          </div>
         <ul><% if session[:user_id] %>
             <li>
               <%= link_to "Dash", "/users" %><br>

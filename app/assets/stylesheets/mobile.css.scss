@@ -1,0 +1,42 @@
+@media (max-width: 700px) {
+  .right {
+    display: none;
+  }
+  .center {
+    margin-left: 5px;
+  }
+
+  #logo {
+    display: none;
+    width: 0px;
+    a {
+    display: none;
+    }
+  }
+
+  .dashes {
+    margin-left: 0px;
+  }
+  .nav {
+    height: 28px;
+
+    ul {
+      padding-top: 3px;
+      margin-left: -275px;
+    }
+    li {
+      font-size: 20px;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .nav {
+    li {
+      font-size: 17px;
+      margin-left: 10px;
+    }
+    ul {
+      margin-left: -270px;
+    }
+  }
+}

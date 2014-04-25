@@ -13,7 +13,7 @@ $nav-offset: 40px;
 $right-depth: 250px;
 $right-width: $right-depth + $nav-offset;
 $center-width: 55%;
-$nav-depth: 55px;
+$nav-depth: 50px;
 $nav-height: $nav-depth + $nav-offset;
 $off-white: lighten(desaturate(#083a34, 75), 83);
 $grey: lighten(desaturate(#083a34, 75), 72);
@@ -43,7 +43,7 @@ a {
   height: $nav-depth;
   margin-top: $nav-offset;
   padding-left: $nav-offset;
-  // padding-bottom: 5px;
+  padding-top: 2px;
   min-width: 900px;
   // overflow: scroll;
   z-index: 1;
@@ -64,7 +64,7 @@ a {
     margin-right: 60px;
     display: inline-block;
     text-align: right;
-    font-size: 44px;
+    font-size: 40px;
     // padding: 5px;
     width: 160px;
     font-family: $script-font;
@@ -72,6 +72,9 @@ a {
     span {
       font-family: $outline-font;
       padding-right: 10px;
+    }
+    a {
+      color: $color-pop;
     }
   }
   ul {
