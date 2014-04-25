@@ -91,6 +91,7 @@ a {
 }
 
 .center {
+  padding: $offset;
   margin-top: $nav-height;
   margin-left: $right-width;
   width: $center-width;
@@ -98,7 +99,6 @@ a {
   text-align: left;
   color: $dark;
   height: 100%;
-  padding: $offset;
   font-size: 20px;
   h1 {
     font-size: 40px;
