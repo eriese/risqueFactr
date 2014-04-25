@@ -1,42 +1,40 @@
-@media (max-width: 700px) {
+.mobile {
   .right {
     display: none;
   }
   .center {
-    margin-left: 5px;
+    margin-left: 10px;
   }
-
-  #logo {
-    display: none;
-    width: 0px;
-    a {
-    display: none;
-    }
-  }
-
   .dashes {
-    margin-left: 0px;
+    margin-left: 10px;
+    width: 8px;
   }
   .nav {
     height: 28px;
-
+    #logo {
+      display: none;
+      width: 0px;
+      a {
+      display: none;
+      }
+    }
     ul {
       padding-top: 3px;
-      margin-left: -275px;
+      margin-left: -40px;
     }
     li {
       font-size: 20px;
     }
   }
 }
-@media (max-width: 400px) {
-  .nav {
-    li {
-      font-size: 17px;
-      margin-left: 10px;
-    }
-    ul {
-      margin-left: -270px;
-    }
-  }
-}
+// @media (max-width: 400px) {
+//   .nav {
+//     li {
+//       font-size: 17px;
+//       margin-left: 10px;
+//     }
+//     ul {
+//       margin-left: -255px;
+//     }
+//   }
+// }
