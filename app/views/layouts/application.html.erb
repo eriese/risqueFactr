@@ -24,6 +24,9 @@
             <li><%= link_to "Partners", "/partners" %></li>
             <li><%= link_to "Tests", sti_tests_path %></li>
             <li>
+              <%= link_to "Encounters", "/users/#{session[:user_id]}/encounters" %>
+            </li>
+            <li>
               <%= link_to "Log Out", "/logout"%><br>
             </li>
           <% else %>
