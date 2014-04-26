@@ -13,11 +13,9 @@ setSize = function() {
     console.log(fontSize);
     $(".nav li").css("font-size", fontSize + "px");
     $(".nav li").css("margin-right", marginWidth + "px");
-    $(".nav ul").css("width", "80%");
   }
   else {
     $("body").removeClass("mobile");
-    $(".nav ul").css("width", "60%");
   }
 }
 $(document).ready(setSize);
