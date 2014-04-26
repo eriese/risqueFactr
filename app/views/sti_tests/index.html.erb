@@ -10,6 +10,7 @@
 </div>
 <div class="dashes"></div>
 <div class="center">
+
   <ul>
   <% @diseases.each do |disease| %>
   <li>
@@ -22,5 +23,6 @@
     <% end %>
   </li><br>
   <% end %>
+  <%= link_to "Add a test", new_sti_test_path %>
   </ul>
 </div>
