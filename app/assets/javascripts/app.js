@@ -9,7 +9,7 @@ setSize = function() {
     else {
       fontSize = 14;
     }
-    var marginWidth = $(window).width() / 50;
+    var marginWidth = $(window).width() / 30;
     console.log(fontSize);
     $(".nav li").css("font-size", fontSize + "px");
     $(".nav li").css("margin-right", marginWidth + "px");
