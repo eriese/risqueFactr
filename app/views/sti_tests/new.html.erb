@@ -1,4 +1,6 @@
-<div class="center"><%= form_for @sti_test  do |t| %>
+<div class="dashes hidden to-hide"></div>
+<div class="center">
+  <%= form_for @sti_test  do |t| %>
   <%= t.label :date_taken, "Date"%>
   <%= t.date_select :date_taken %>
     <% @diseases.each do |disease| %>

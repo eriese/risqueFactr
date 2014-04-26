@@ -2,6 +2,7 @@ setSize = function() {
   console.log($(window).width());
   if($(window).width() < 750) {
     $("body").addClass("mobile");
+    $(".to-hide").removeClass("hidden");
     var fontSize;
     if($(window).width() / 30 > 14) {
       fontSize = $(window).width() / 30;
@@ -16,6 +17,7 @@ setSize = function() {
   }
   else {
     $("body").removeClass("mobile");
+    $(".to-hide").addClass("hidden");
   }
 }
 $(document).ready(setSize);
