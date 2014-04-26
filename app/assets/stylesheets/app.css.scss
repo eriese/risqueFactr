@@ -79,7 +79,8 @@ a {
   }
   ul {
     display: inline-block;
-    width: 70%;
+    width: 60%;
+    margin-left: 20px;
     // text-align: right;
   }
   li {
@@ -88,7 +89,7 @@ a {
     // margin-left: $offset * 2;
     color: $off-white;
     display: inline-block;
-    // width: 20%;
+    margin: 0px 20px;
   }
   a {
     color: $grey;
