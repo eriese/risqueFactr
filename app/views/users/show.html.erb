@@ -1,19 +1,21 @@
 <div class="right">
   <div id="wrapper">
     <h2>Recent Encounters:</h2>
-    <ul>
-      <li><% @encounters.each do |encounter| %>
-          <br><%= link_to encounter.took_place, partner_encounter_path(encounter.partner, encounter) %>: <br>
-          <%= encounter.partner.name %><br>
-          Risk level:
-          <% if encounter.risk <= 4 %>
-            <span class="low">low</span>
+    <ul class="encounters">
+      <% @encounters.each do |encounter| %>
+      <% if encounter.risk <= 4 %>
+            <li class="low">
           <% elsif encounter.risk <= 8 %>
-            <span class="medium">medium</span>
+            <li class="medium">
           <% else %>
-            <span class="high">high</span>
-          <% end %><br>
+            <li class="high">
+          <% end %>
+          <span class="normal">
+          <%= link_to encounter.took_place, partner_encounter_path(encounter.partner, encounter) %> <br>
+          <%= encounter.partner.name %>
         <% end %>
+        <br>
+        </span>
       </li>
     </ul>
     <br>

@@ -183,3 +183,20 @@ a {
 .hidden {
   display: none;
 }
+
+ul.encounters {
+  li:before {
+    content: ".";
+    font-size: 80px;
+  }
+  li {
+    // padding-bottom: 16px;
+    line-height: 18px;
+    // margin-left: 20px;
+  }
+}
+.normal {
+  color: $dark;
+  font-size: 18px;
+  line-height: 18px;
+}
