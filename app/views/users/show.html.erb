@@ -16,6 +16,11 @@
         <% end %>
       </li>
     </ul>
+    <br>
+    <%= form_tag "/users/#{@user.id}/encounters" %>
+    New Encounter with:
+    <%= select_tag :partner_id, options_from_collection_for_select(@partners, :id, :name), id: "partner-select" %>
+    <%= submit_tag "create", id: "new-encounter" %>
   </div>
 </div>
 <div class="dashes"></div>

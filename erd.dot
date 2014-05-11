@@ -1,0 +1,124 @@
+digraph ThirdProj {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+label = "ThirdProj domain model\n\n";
+m_Contact [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Contact</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="barriers">barriers <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
+m_Disease [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Disease</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="gestation_max">gestation_max <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="gestation_min">gestation_min <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Encounter [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Encounter</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="fluid">fluid <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="notes">notes <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="self_risk">self_risk <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="took_place">took_place <font face="Arial Italic" color="grey60">date</font></td></tr>
+</table>
+>];
+m_Infection [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Infection</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="positive">positive <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
+m_Instrument [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Instrument</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="part">part <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Partner [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Partner</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="exclusivity">exclusivity <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="familiarity">familiarity <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="frequency">frequency <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Pref [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Pref</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="anus_name">anus_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="genital_name">genital_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Pronoun [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Pronoun</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="obj_possessive">obj_possessive <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="object">object <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="possessive">possessive <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="reflexive">reflexive <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="subject">subject <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_StiTest [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">StiTest</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="date_taken">date_taken <font face="Arial Italic" color="grey60">date</font></td></tr>
+</table>
+>];
+m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="password_digest">password_digest <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+  m_Instrument -> m_Contact [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Partner -> m_Encounter [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Encounter -> m_Contact [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Instrument -> m_Contact [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_Partner [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Pref -> m_Partner [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Pref -> m_User [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Pronoun -> m_Pref [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Pronoun -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Pronoun -> m_Partner [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_StiTest -> m_Infection [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_StiTest -> m_Disease [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_User -> m_Encounter [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_User -> m_StiTest [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Disease -> m_Infection [arrowhead = "normal", arrowtail = "none", weight = "2"];
+}

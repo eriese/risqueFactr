@@ -27,4 +27,6 @@
   Trust level: <%= @partner.familiarity %><br>
   <br>
   <%= link_to "edit", edit_partner_path(@partner) %>
+  <br>
+  <%= link_to "new encounter", "/partners/#{@partner.id}/encounters/new" %>
 </div>

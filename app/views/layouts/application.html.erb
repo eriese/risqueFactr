@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Lily+Script+One|Londrina+Outline|Fanwood+Text' rel='stylesheet' type='text/css'>
   <title>RisqueFactr</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -10,15 +11,21 @@
 <body>
   <div id="container">
     <div class="nav">
-          <a id="logo" href="/">
-              Risque<span>Factr</span>
-          </a>
+
+          <div id="logo">
+            <a href="/">
+                Risque<span>Factr</span>
+            </a>
+          </div>
         <ul><% if session[:user_id] %>
             <li>
               <%= link_to "Dash", "/users" %><br>
             </li>
             <li><%= link_to "Partners", "/partners" %></li>
             <li><%= link_to "Tests", sti_tests_path %></li>
+            <li>
+              <%= link_to "Encounters", "/users/#{session[:user_id]}/encounters" %>
+            </li>
             <li>
               <%= link_to "Log Out", "/logout"%><br>
             </li>

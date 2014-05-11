@@ -59,9 +59,7 @@ class UsersController < ApplicationController
     @encounters = @user.encounters.order("took_place DESC")
   end
   def new_encounter
-    @user = User.find(session[:user_id])
-    @partners = Partner.where(user_id: session[:user_id])
-    @encounter = Encounter.new
-    @instruments = Instrument.all
+    partner_id = params[:partner_id]
+    redirect_to "/partners/#{partner_id}/encounters/new"
   end
 end
